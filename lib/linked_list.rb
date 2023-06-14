@@ -16,7 +16,7 @@ class LinkedList # Represent full list
   end
 
   def prepend(value) # adds a new node containing value to the start of the list
-
+    
   end
 
   def size # returns the total number of nodes in the list
