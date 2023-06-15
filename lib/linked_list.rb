@@ -61,13 +61,6 @@ class LinkedList # Represent full list
     end
   end 
 
-    # def at(index, node = head, counter = 0)
-    #   return node if index == counter
-    #   return nil if last_node?(node)
-  
-    #   at(index, node.next_node, counter + 1)
-    # end
-
   def pop(current = @head) # removes the last elemnet from the list 
     return if current.nil?
     return current = nil if current.next_node.nil? 
@@ -91,8 +84,11 @@ class LinkedList # Represent full list
     false 
   end
 
-  def find(value) # return the index of the node containing value, or nil if not 
+  def find(value, node = @head, counter = 0) # return the index of the node containing value, or nil if not 
+    return if node.nil?
+    return counter if node.value == value 
 
+    find(value, node.next_node, counter += 1)
   end
 
   def to_s # represent linked_list object as string, Must show: (value) -> (value) -> (value) -> nil
