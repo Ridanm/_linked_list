@@ -68,12 +68,27 @@ class LinkedList # Represent full list
     #   at(index, node.next_node, counter + 1)
     # end
 
-  def pop # removes the last elemnet from the list 
-    delete(tail)
+  def pop(current = @head) # removes the last elemnet from the list 
+    return if current.nil?
+    return current = nil if current.next_node.nil? 
+    previous = nil 
+
+    while current.next_node 
+      previous = current 
+      current = current.next_node 
+    end
+
+    previous.next_node = nil 
   end
 
   def contains?(value) # returns true if the passed in value is the list and otherwise returns false
+    current = @head 
 
+    while current 
+      return true if current.value == value 
+      current = current.next_node 
+    end
+    false 
   end
 
   def find(value) # return the index of the node containing value, or nil if not 
