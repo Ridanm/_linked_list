@@ -91,8 +91,10 @@ class LinkedList # Represent full list
     find(value, node.next_node, counter += 1)
   end
 
-  def to_s # represent linked_list object as string, Must show: (value) -> (value) -> (value) -> nil
-    puts "(#{@head.value}) -> "
+  def to_s(list = @head) # represent linked_list object as string, Must show: ( value ) -> ( value ) -> ( value ) -> nil
+    return print "nil\n" if list.nil? 
+    print "( #{list.value} ) -> "
+    to_s(list.next_node)
   end
  
   # Extra credit 
