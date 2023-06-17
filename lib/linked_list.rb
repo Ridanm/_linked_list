@@ -98,13 +98,30 @@ class LinkedList # Represent full list
   end
  
   # Extra credit 
-  def insert_at(value, index) # that insert a new node with the provided value at the given index.
+  def insert_at(value, index)
+    return puts 'Wrong index' if index < 0 || index > size - 1 
+    @head = insert(value, index, @head)
+  end
 
+  def insert(value, index, node)
+    return Node.new(value) if node.nil? && index == 0
+    return node if node.nil? || index < 0
+
+    if index == 0
+      new_node = Node.new(value)
+      new_node.next_node = node
+      return new_node
+    end
+
+    node.next_node = insert(value, index - 1, node.next_node)
+    node
   end
 
   # When insert or remove a node, some of the nodes will need update their next_node link update.
   def remove(index) # that removes the node at the given index. 
 
   end
+
+  private :insert 
 
 end
