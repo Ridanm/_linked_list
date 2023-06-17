@@ -99,7 +99,7 @@ class LinkedList # Represent full list
  
   # Extra credit 
   def insert_at(value, index)
-    return puts 'Wrong index' if index < 0 || index > size - 1 
+    return puts 'Wrong index' if index < 0 || index > size 
     @head = insert(value, index, @head)
   end
 
