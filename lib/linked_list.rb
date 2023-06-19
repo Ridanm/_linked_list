@@ -32,6 +32,11 @@ class LinkedList # Represent full list
     count 
   end
 
+  def size_recursive(node=@head)
+    return 0 if node.nil? 
+    return 1 + size_recursive(node.next_node)
+  end
+
   def head # returns the first node in the list 
     @head.value 
   end
@@ -100,28 +105,46 @@ class LinkedList # Represent full list
   # Extra credit 
   def insert_at(value, index)
     return puts 'Wrong index' if index < 0 || index > size 
-    @head = insert(value, index, @head)
-  end
+    insert = Node.new(value)
 
-  def insert(value, index, node)
-    return Node.new(value) if node.nil? && index == 0
-    return node if node.nil? || index < 0
+    if index == 0 
+      insert.next_node = @head 
+      @head = insert 
+    else   
+      current = @head 
+      prev = nil 
+      count = 0
 
-    if index == 0
-      new_node = Node.new(value)
-      new_node.next_node = node
-      return new_node
+      while count < index && current 
+        prev = current 
+        current = current.next_node 
+        count += 1
+      end
+
+      prev.next_node = insert 
+      insert.next_node = current 
     end
-
-    node.next_node = insert(value, index - 1, node.next_node)
-    node
   end
 
-  # When insert or remove a node, some of the nodes will need update their next_node link update.
-  def remove(index) # that removes the node at the given index. 
+  def remove_at(index) # that removes the node at the given index. 
+    return if index < 0 || @head.nil? 
+    node = @head 
+    
+    if index == 0 
+      @head = @head.next_node 
+    else 
+      prev = nil 
+      count = 0 
 
+      while count < index && !node.nil? 
+        prev = node 
+        node = node.next_node 
+        count += 1
+      end
+      return if node.nil? 
+      prev.next_node = node.next_node
+    end
+    node 
   end
-
-  private :insert 
 
 end
