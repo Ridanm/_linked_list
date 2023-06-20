@@ -37,7 +37,7 @@ class LinkedList # Represent full list
     return 1 + size_recursive(node.next_node)
   end
 
-  def head # returns the first node in the list 
+  def head_value # returns the first node in the list 
     @head.value 
   end
 
