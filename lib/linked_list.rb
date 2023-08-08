@@ -55,9 +55,7 @@ class LinkedList # Represent full list
   end
 
   def at(index) # returns the node at the given index
-    if index > size - 1 || index < 0
-      return "This index does not correspond to this list"
-    end
+    return 'Index out of range...' if index > size - 1 || index < 0 
 
     current = @head 
     count = 0 
