@@ -66,9 +66,10 @@ class LinkedList # Represent full list
     end
   end 
 
-  def pop(current = @head) # removes the last elemnet from the list 
-    return if current.nil?
-    return current = nil if current.next_node.nil? 
+  def pop # removes the last elemnet from the list 
+    return if head.nil?
+    return @head = nil if head.next_node.nil? 
+    current = @head 
     previous = nil 
 
     while current.next_node 
