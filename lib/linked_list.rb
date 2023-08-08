@@ -7,7 +7,7 @@ class LinkedList # Represent full list
   end
 
   def append(value) # adds a new containing value to the end of the list
-    if @head.nil?
+    if head.nil?
       @head = Node.new(value) 
     else 
       current = @head 
@@ -37,8 +37,9 @@ class LinkedList # Represent full list
     return 1 + size_recursive(node.next_node)
   end
 
-  def head_value # returns the first node in the list 
-    @head.value 
+  def head_node # returns the first node in the list 
+    return 'Empty list...' if head.nil? 
+    @head
   end
 
   def tail # return the last node in the list
