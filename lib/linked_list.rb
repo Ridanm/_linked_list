@@ -60,7 +60,7 @@ class LinkedList # Represent full list
     current = @head 
     count = 0 
     while current 
-      return current.value if count == index 
+      return current if count == index 
       current = current.next_node 
       count += 1 
     end
