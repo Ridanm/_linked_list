@@ -41,15 +41,16 @@ class LinkedList # Represent full list
     @head.value 
   end
 
-  def tail # returns the last node in the list 
-    current = @head 
-    count = 0
-    long = size - 1
-    while count < long 
-      current = current.next_node
-      count += 1
+  def tail # return the last node in the list
+    node = @head 
+    ref_last = nil 
+
+    while node 
+      ref_last = node
+      node = node.next_node
     end
-    current.value
+
+    ref_last  
   end
 
   def at(index) # returns the node at the given index
