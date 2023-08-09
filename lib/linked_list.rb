@@ -107,7 +107,7 @@ class LinkedList # Represent full list
   end
 
   def to_s(list = @head) # represent linked_list object as string, Must show: ( value ) -> ( value ) -> ( value ) -> nil
-    return print "nil\n" if list.nil? 
+    return puts 'nil' if list.nil? 
     print "( #{list.data} ) -> "
     to_s(list.next_node)
   end
