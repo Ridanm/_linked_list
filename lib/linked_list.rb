@@ -103,7 +103,6 @@ class LinkedList # Represent full list
   def find(value, node = @head, counter = 0) # return the index of the node containing value, or nil if not 
     return if node.nil?
     return counter if node.data == value 
-
     find(value, node.next_node, counter += 1)
   end
 
