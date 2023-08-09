@@ -3,11 +3,11 @@ require './linked_list.rb'
 
 list = LinkedList.new()
 
-list.append('two')
-list.append('three')
-list.prepend_('one')
-list.append('four')
-list.append('five')
+list.app_end('two')
+list.app_end('three')
+list.prepend!('one')
+list.app_end('four')
+list.app_end('five')
 
 print "\nAll nodes => "
 list.to_s 
