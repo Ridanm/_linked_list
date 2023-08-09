@@ -6,7 +6,7 @@ class LinkedList # Represent full list
     @head = nil 
   end
 
-  def append(value) # adds a new containing value to the end of the list
+  def app_end(value) # adds a new containing value to the end of the list
     if head.nil?
       @head = Node.new(value) 
     else 
@@ -16,7 +16,7 @@ class LinkedList # Represent full list
     end
   end
 
-  def prepend_(value) # adds a new node containing value to the start of the list
+  def prepend!(value) # adds a new node containing value to the start of the list
     new_node = Node.new(value)
     new_node.next_node = @head 
     @head = new_node 
