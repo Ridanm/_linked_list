@@ -11,7 +11,7 @@ list.append('five')
 
 print "\nAll nodes => "
 list.to_s 
-puts "head => #{list.head_value}"
+puts "head => #{list.head_node}"
 puts "size => #{list.size}"
 puts "tail => #{list.tail}"
 puts "at_index(1) => #{list.at(1)}"
@@ -21,8 +21,8 @@ puts "contains(four) => #{list.contains?('four')}"
 puts "contains(five) => #{list.contains?('five')}"
 puts "find(one) return index => #{list.find('one')}"
 puts "find(five) return index => #{list.find('five') || 'nil'}"
-list.insert_at('value', 2)
-print "Insert_at(value, 2) => "
+list.insert_at('insert_value', 2)
+print "Insert_at(insert_value, 2) => "
 list.to_s 
 list.remove_at(2)
 print "remove_at(2) => "

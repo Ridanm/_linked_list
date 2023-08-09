@@ -81,25 +81,35 @@ class LinkedList # Represent full list
   end
 
   def contains?(value) # returns true if the passed in value is the list and otherwise returns false
+    return false if head.nil? 
     current = @head 
 
     while current 
-      return true if current.value == value 
+      return true if current.data == value 
       current = current.next_node 
     end
+
     false 
   end
 
+  def contains_recursive?(value, current=@head)
+    return false if current.nil? 
+    return true if current.data == value  
+    return false if current.next_node.nil? 
+    contains_recursive?(value, current.next_node)
+  end
+
+
   def find(value, node = @head, counter = 0) # return the index of the node containing value, or nil if not 
     return if node.nil?
-    return counter if node.value == value 
+    return counter if node.data == value 
 
     find(value, node.next_node, counter += 1)
   end
 
   def to_s(list = @head) # represent linked_list object as string, Must show: ( value ) -> ( value ) -> ( value ) -> nil
     return print "nil\n" if list.nil? 
-    print "( #{list.value} ) -> "
+    print "( #{list.data} ) -> "
     to_s(list.next_node)
   end
  
