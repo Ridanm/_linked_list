@@ -113,26 +113,27 @@ class LinkedList # Represent full list
   end
  
   # Extra credit 
-  def insert_at(value, index)
-    return puts 'Wrong index' if index < 0 || index > size 
+  def insert_at(value, index) # this work but not print when index selected is 0 method to_s 
+    return 'Wrong index...' if index < 0 || index > size - 1
+    current = @head 
     insert = Node.new(value)
+    prev = nil 
+    count = 0
+
+    while count < index 
+      prev = current 
+      count += 1 
+      current = current.next_node 
+    end
 
     if index == 0 
-      insert.next_node = @head 
-      @head = insert 
-    else   
-      current = @head 
-      prev = nil 
-      count = 0
-
-      while count < index && current 
-        prev = current 
-        current = current.next_node 
-        count += 1
-      end
-
-      prev.next_node = insert 
       insert.next_node = current 
+      @head = insert 
+      return head
+    else 
+      insert.next_node = current
+      prev.next_node = insert 
+      return head 
     end
   end
 
