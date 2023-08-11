@@ -113,7 +113,7 @@ class LinkedList # Represent full list
   end
  
   # Extra credit 
-  def insert_at(value, index) # this work but not print when index selected is 0 method to_s 
+  def insert_at(value, index)
     return 'Wrong index...' if index < 0 || index > size - 1
     current = @head 
     insert = Node.new(value)
