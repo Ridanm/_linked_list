@@ -55,6 +55,7 @@ class LinkedList # Represent full list
   end
 
   def at(index) # returns the node at the given index
+    index = index.to_i 
     return 'Index out of range...' if index > size - 1 || index < 0 
 
     current = @head 
@@ -114,6 +115,7 @@ class LinkedList # Represent full list
  
   # Extra credit 
   def insert_at(value, index)
+    index = index.to_i
     return 'Wrong index...' if index < 0 || index > size - 1
     current = @head 
     insert = Node.new(value)
@@ -137,25 +139,26 @@ class LinkedList # Represent full list
     end
   end
 
-  def remove_at(index) # that removes the node at the given index. 
-    return if index < 0 || @head.nil? 
-    node = @head 
-    
-    if index == 0 
-      @head = @head.next_node 
-    else 
-      prev = nil 
-      count = 0 
+  def remove_at(index)
+    index = index.to_i 
+    return 'Wrong index...' if index < 0 || index > size - 1 
+    return if head.nil?  
+    current = @head 
+    prev = nil 
+    count = 0 
 
-      while count < index && !node.nil? 
-        prev = node 
-        node = node.next_node 
-        count += 1
-      end
-      return if node.nil? 
-      prev.next_node = node.next_node
+    while count < index 
+      prev = current 
+      count += 1
+      current = current.next_node 
     end
-    node 
-  end
 
+    if index == 0 
+      @head = current.next_node
+      return head 
+    else 
+      prev.next_node = current.next_node
+      return prev 
+    end
+  end
 end
