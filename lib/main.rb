@@ -25,5 +25,5 @@ list.insert_at('insert_value', 2)
 print "Insert_at(insert_value, 2) => "
 list.to_s 
 list.remove_at(2)
-print "remove_at(2) => "
+print "remove_at(2)( insert_value ) => "
 list.to_s
