@@ -1,10 +1,11 @@
-class Node # Contain value_method and the link to the next_node, set bothas nil by default
-  
+# frozen_string_literal: true
+
+# Class Node contains the value of the node and the next node it can point to
+class Node
   attr_accessor :data, :next_node
 
-  def initialize(data=nil, next_node=nil) 
+  def initialize(data=nil, next_node=nil)
     @data = data
     @next_node = next_node
   end
-
 end
