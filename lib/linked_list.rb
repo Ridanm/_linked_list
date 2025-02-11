@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Class linked list
+# This class creates a linked list
 class LinkedList
   attr_accessor :head
 
@@ -14,8 +14,9 @@ class LinkedList
     else
       current = @head
       current = current.next_node
-    while current.next_node
-      current.next_node = Node.new(value)
+      while current
+        current.next_node = Node.new(value)
+      end
     end
   end
 
@@ -35,17 +36,19 @@ class LinkedList
     count
   end
 
-  def size_recursive(node=@head)
-    return 0 if node.nil? 
+  def size_recursive(node = @head)
+    return 0 if node.nil?
+
     return 1 + size_recursive(node.next_node)
   end
 
   def head_node
     return 'Empty list...' if head.nil?
+
     @head
   end
 
-  def tail # return the last node in the list
+  def tail
     node = @head
     ref_last = nil
 
@@ -59,12 +62,12 @@ class LinkedList
 
   def at(index)
     index = index.to_i
-    return 'Index out of range...' if index > size - 1 || index < 0
-
+    return 'Index out of range...' if index > size - 1 || index.negative?
     current = @head
     count = 0
     while current
       return current if count == index
+
       current = current.next_node 
       count += 1
     end
@@ -72,7 +75,9 @@ class LinkedList
 
   def pop
     return if head.nil?
+
     return @head = nil if head.next_node.nil?
+
     current = @head
     previous = nil
 
@@ -163,4 +168,4 @@ class LinkedList
       return prev
     end
   end
-end
+end 
