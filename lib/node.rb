@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Class Node contains the value of the node and the next node it can point to
+# Creates a node with its value and the next one it points to
 class Node
   attr_accessor :data, :next_node
 
