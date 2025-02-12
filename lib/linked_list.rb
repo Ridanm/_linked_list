@@ -8,16 +8,12 @@ class LinkedList
     @head = nil
   end
 
-  def app_end(value)
-    if head.nil?
-      @head = Node.new(value)
-    else
-      current = @head
-      current = current.next_node
-      while current
-        current.next_node = Node.new(value)
-      end
-    end
+  def append(value)
+    return @head = Node.new(value) if @head.nil?
+    
+    current = @head
+    current = current.next_node while current.next_node != nil
+    current.next_node = Node.new(value)
   end
 
   def prepend!(value)
@@ -114,13 +110,12 @@ class LinkedList
     find(value, node.next_node, counter += 1)
   end
 
-  def to_s(list = @head) # represent linked_list object as string, Must show: ( value ) -> ( value ) -> ( value ) -> nil
+  def to_s(list = @head)
     return puts 'nil' if list.nil? 
     print "( #{list.data} ) -> "
     to_s(list.next_node)
   end
  
-  # Extra credit 
   def insert_at(value, index)
     index = index.to_i
     return 'Wrong index...' if index < 0 || index > size - 1
