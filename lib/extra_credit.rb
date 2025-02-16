@@ -2,26 +2,26 @@
 
 # This module contains extra methods for the linked list project
 module ExtraCredit
-  def insert_at(value, index)
-    return if index.to_i.negative? || index.to_i > size - 1
-
-    current = @head
-    insert = Node.new(value)
-    prev = nil
-    count = 0
-
-    while count < index
-      prev = current
-      count += 1
-      current = current.next_node
-      insert.next_node = current
-    end
+  def insert_at(index, value)
+    new_node = Node.new(value)
 
     if index.zero?
-      @head = insert
+      new_node.next_node = @head
+      @head = new_node
     else
-      prev.next_node = insert
-      @head
+      current = @head
+      count = 0
+
+      while count < index
+        return if current.nil?
+
+        previous = current
+        current = previous.next_node
+        count += 1
+      end
+
+      new_node.next_node = current
+      previous.next_node = new_node
     end
   end
 

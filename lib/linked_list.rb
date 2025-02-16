@@ -56,8 +56,7 @@ class LinkedList
   end
 
   def at(index)
-    index = index.to_i
-    return 'Index out of range...' if index > size - 1 || index.negative?
+    return 'Index out of range...' if index.to_i > size - 1 || index.to_i.negative?
 
     current = @head
     count = 0
