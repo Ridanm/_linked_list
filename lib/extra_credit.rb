@@ -27,11 +27,7 @@ module ExtraCredit
 
   def remove_at(index)
     return if @head.nil?
-
-    if index.zero?
-      @head = @head.next_node
-      return
-    end
+    return  @head = @head.next_node if index.zero?
 
     current = @head
     previous = nil
