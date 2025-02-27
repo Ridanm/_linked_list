@@ -21,6 +21,7 @@ puts "tail => #{list.tail.data}"
 puts "at_index(1) => #{list.at(1).data}"
 puts "\nremove last #{list.pop}"
 puts "size => #{list.size}"
+
 puts "contains(four) => #{list.contains?('four')}"
 puts "contains(five) => #{list.contains?('five')}"
 puts "find(one) return index => #{list.find('one')}"
