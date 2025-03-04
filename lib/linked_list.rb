@@ -38,7 +38,7 @@ class LinkedList
   end
 
   def head_node
-    return 'Empty list...' if head.nil?
+    return if head.nil?
 
     @head
   end
@@ -56,7 +56,7 @@ class LinkedList
   end
 
   def at(index)
-    return 'Index out of range...' if index.to_i > size - 1 || index.to_i.negative?
+    return if index.to_i > size - 1 || index.to_i.negative?
 
     current = @head
     count = 0
@@ -70,7 +70,6 @@ class LinkedList
 
   def pop
     return if head.nil?
-
     return @head = nil if head.next_node.nil?
 
     current = @head
